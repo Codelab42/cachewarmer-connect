@@ -265,7 +265,10 @@ final class CacheWarmer_Connect_Admin {
 		}
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'Cache-Warmer Connect', 'cachewarmer-connect' ); ?></h1>
+			<h1 style="display: flex; align-items: center; gap: 10px;">
+				<img src="<?php echo esc_url( plugins_url( 'assets/logo.svg', CACHEWARMER_CONNECT_FILE ) ); ?>" alt="" width="36" height="37" />
+				<?php esc_html_e( 'Cache-Warmer Connect', 'cachewarmer-connect' ); ?>
+			</h1>
 
 			<?php self::render_status(); ?>
 
