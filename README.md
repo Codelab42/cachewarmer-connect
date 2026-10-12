@@ -1,8 +1,8 @@
-# Cache-Warmer Connect
+# Cache-Warmer.com connector
 
 Connect WordPress to [Cache-Warmer.com](https://www.cache-warmer.com).
 
-Cache-Warmer Connect warms your site's cache right after it's cleared. When your page cache is purged, or when you publish, update or unpublish content, the plugin tells Cache-Warmer.com to start a warming run, so visitors never hit a cold cache.
+Cache-Warmer.com connector warms your site's cache right after it's cleared. When your page cache is purged, or when you publish, update or unpublish content, the plugin tells Cache-Warmer.com to start a warming run, so visitors never hit a cold cache.
 
 ## Features
 
@@ -23,14 +23,14 @@ Cache-Warmer Connect warms your site's cache right after it's cleared. When your
 
 ## Installation
 
-1. Download the latest release zip, or clone this repository into `wp-content/plugins/cachewarmer-connect`:
+1. Download the latest release zip, or clone this repository into `wp-content/plugins/cache-warmer-com-connector`:
 
    ```sh
-   git clone https://github.com/Codelab42/cachewarmer-connect.git wp-content/plugins/cachewarmer-connect
+   git clone https://github.com/Codelab42/cachewarmer-connect.git wp-content/plugins/cache-warmer-com-connector
    ```
 
-2. Activate **Cache-Warmer Connect** under **Plugins**.
-3. Go to **Settings → Cache-Warmer Connect**.
+2. Activate **Cache-Warmer.com connector** under **Plugins**.
+3. Go to **Settings → Cache-Warmer.com connector**.
 4. Enter your project ID and secret, check **Enable Cache-Warmer integration** and save.
 5. Click **Warm cache now** to test the connection.
 

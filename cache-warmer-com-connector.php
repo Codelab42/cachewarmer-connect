@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Cache-Warmer Connect
+ * Plugin Name:       Cache-Warmer.com connector
  * Plugin URI:        https://cache-warmer.com/cache-warming/wordpress
  * Description:       Integrates your site with cache-warmer.com. Clearing your cache or publishing content automatically schedules a cache warming run.
  * Version:           1.0.0
@@ -10,7 +10,7 @@
  * Author URI:        https://www.cache-warmer.com
  * License:           GPL-3.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain:       cachewarmer-connect
+ * Text Domain:       cache-warmer-com-connector
  *
  * @package CacheWarmer_Connect
  */

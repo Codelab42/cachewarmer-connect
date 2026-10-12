@@ -1,6 +1,6 @@
 <?php
 /**
- * Removes all Cache-Warmer Connect data.
+ * Removes all Cache-Warmer.com connector data.
  *
  * @package CacheWarmer_Connect
  */
