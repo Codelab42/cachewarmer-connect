@@ -17,12 +17,20 @@ function cachewarmer_connect_uninstall_site() {
 	wp_clear_scheduled_hook( 'cachewarmer_connect_deferred_warm' );
 }
 
-if ( is_multisite() ) {
-	foreach ( get_sites( array( 'fields' => 'ids', 'number' => 0 ) ) as $cachewarmer_site_id ) {
-		switch_to_blog( $cachewarmer_site_id );
+/**
+ * Removes the plugin's data from every site.
+ */
+function cachewarmer_connect_uninstall() {
+	if ( ! is_multisite() ) {
+		cachewarmer_connect_uninstall_site();
+		return;
+	}
+
+	foreach ( get_sites( array( 'fields' => 'ids', 'number' => 0 ) ) as $site_id ) {
+		switch_to_blog( $site_id );
 		cachewarmer_connect_uninstall_site();
 		restore_current_blog();
 	}
-} else {
-	cachewarmer_connect_uninstall_site();
 }
+
+cachewarmer_connect_uninstall();
