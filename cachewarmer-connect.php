@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Cache-Warmer Connect
- * Plugin URI:        https://www.cache-warmer.com
+ * Plugin URI:        https://cache-warmer.com/cache-warming/wordpress
  * Description:       Integrates your site with cache-warmer.com. Clearing your cache or publishing content automatically schedules a cache warming run.
  * Version:           1.0.0
  * Requires at least: 5.6
