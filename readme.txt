@@ -1,4 +1,4 @@
-=== Cache-Warmer.com connector ===
+=== Codelab42 Cache Warming Connect ===
 Tags: cache, cache warming, performance, page cache, preload
 Requires at least: 5.6
 Tested up to: 7.1
@@ -11,7 +11,7 @@ Integrates your site with cache-warmer.com. Clearing your cache or publishing co
 
 == Description ==
 
-Cache-Warmer.com connector connects your WordPress site to the [cache-warmer.com](https://www.cache-warmer.com) service. When your page cache is cleared, or when you publish, update or unpublish content, the plugin tells cache-warmer.com to warm your site's cache right away, so visitors never hit a cold cache.
+Codelab42 Cache Warming Connect connects your WordPress site to the [cache-warmer.com](https://www.cache-warmer.com) service. When your page cache is cleared, or when you publish, update or unpublish content, the plugin tells cache-warmer.com to warm your site's cache right away, so visitors never hit a cold cache.
 
 **Triggers**
 
@@ -24,9 +24,9 @@ Multiple triggers in one request are combined into a single run. After a run, fu
 
 == Installation ==
 
-1. Upload the `cache-warmer-com-connector` folder to `/wp-content/plugins/`, or upload the zip via Plugins > Add New > Upload Plugin.
+1. Upload the `codelab42-cache-warming-connect` folder to `/wp-content/plugins/`, or upload the zip via Plugins > Add New > Upload Plugin.
 2. Activate the plugin.
-3. Go to Settings > Cache-Warmer.com connector, enter your project ID and secret, check "Enable Cache-Warmer integration" and save.
+3. Go to Settings > Codelab42 Cache Warming Connect, enter your project ID and secret, check "Enable Cache-Warmer integration" and save.
 4. Click "Warm cache now" to test the connection.
 
 To keep credentials out of the database, define them in `wp-config.php`:

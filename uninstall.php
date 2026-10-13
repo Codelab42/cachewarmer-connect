@@ -1,6 +1,6 @@
 <?php
 /**
- * Removes all Cache-Warmer.com connector data.
+ * Removes all Codelab42 Cache Warming Connect data.
  *
  * @package CacheWarmer_Connect
  */

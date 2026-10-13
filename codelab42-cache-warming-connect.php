@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name:       Cache-Warmer.com connector
+ * Plugin Name:       Codelab42 Cache Warming Connect
  * Plugin URI:        https://cache-warmer.com/cache-warming/wordpress
  * Description:       Integrates your site with cache-warmer.com. Clearing your cache or publishing content automatically schedules a cache warming run.
  * Version:           1.0.0
  * Requires at least: 5.6
  * Requires PHP:      7.4
- * Author:            Cache-Warmer
- * Author URI:        https://www.cache-warmer.com
+ * Author:            Codelab42
+ * Author URI:        https://codelab42.com
  * License:           GPL-3.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain:       cache-warmer-com-connector
+ * Text Domain:       codelab42-cache-warming-connect
  *
  * @package CacheWarmer_Connect
  */

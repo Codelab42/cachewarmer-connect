@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
  */
 final class CacheWarmer_Connect_Admin {
 
-	const PAGE   = 'cache-warmer-com-connector';
+	const PAGE   = 'codelab42-cache-warming-connect';
 	const ACTION = 'cachewarmer_connect_warm';
 
 	/**
@@ -37,12 +37,12 @@ final class CacheWarmer_Connect_Admin {
 	}
 
 	/**
-	 * Adds Settings > Cache-Warmer.com connector.
+	 * Adds Settings > Codelab42 Cache Warming Connect.
 	 */
 	public static function add_page() {
 		add_options_page(
-			__( 'Cache-Warmer.com connector', 'cache-warmer-com-connector' ),
-			__( 'Cache-Warmer.com connector', 'cache-warmer-com-connector' ),
+			__( 'Codelab42 Cache Warming Connect', 'codelab42-cache-warming-connect' ),
+			__( 'Codelab42 Cache Warming Connect', 'codelab42-cache-warming-connect' ),
 			self::capability(),
 			self::PAGE,
 			array( __CLASS__, 'render_page' )
@@ -57,7 +57,7 @@ final class CacheWarmer_Connect_Admin {
 	 * @return string[]
 	 */
 	public static function action_links( $links ) {
-		array_unshift( $links, sprintf( '<a href="%s">%s</a>', esc_url( self::page_url() ), esc_html__( 'Settings', 'cache-warmer-com-connector' ) ) );
+		array_unshift( $links, sprintf( '<a href="%s">%s</a>', esc_url( self::page_url() ), esc_html__( 'Settings', 'codelab42-cache-warming-connect' ) ) );
 
 		return $links;
 	}
@@ -94,42 +94,42 @@ final class CacheWarmer_Connect_Admin {
 			)
 		);
 
-		add_settings_section( 'connection', __( 'Connection', 'cache-warmer-com-connector' ), array( __CLASS__, 'render_connection_intro' ), self::PAGE );
-		add_settings_field( 'enabled', __( 'Status', 'cache-warmer-com-connector' ), array( __CLASS__, 'render_checkbox' ), self::PAGE, 'connection', array(
+		add_settings_section( 'connection', __( 'Connection', 'codelab42-cache-warming-connect' ), array( __CLASS__, 'render_connection_intro' ), self::PAGE );
+		add_settings_field( 'enabled', __( 'Status', 'codelab42-cache-warming-connect' ), array( __CLASS__, 'render_checkbox' ), self::PAGE, 'connection', array(
 			'key'         => 'enabled',
-			'label'       => __( 'Enable Cache-Warmer integration', 'cache-warmer-com-connector' ),
-			'description' => __( 'When enabled, your cache is warmed automatically when your cache is cleared or content changes.', 'cache-warmer-com-connector' ),
+			'label'       => __( 'Enable Cache-Warmer integration', 'codelab42-cache-warming-connect' ),
+			'description' => __( 'When enabled, your cache is warmed automatically when your cache is cleared or content changes.', 'codelab42-cache-warming-connect' ),
 		) );
-		add_settings_field( 'project_id', __( 'Project ID', 'cache-warmer-com-connector' ), array( __CLASS__, 'render_text' ), self::PAGE, 'connection', array(
+		add_settings_field( 'project_id', __( 'Project ID', 'codelab42-cache-warming-connect' ), array( __CLASS__, 'render_text' ), self::PAGE, 'connection', array(
 			'key'         => 'project_id',
-			'description' => __( 'The project ID from your Cache-Warmer project page on cache-warmer.com.', 'cache-warmer-com-connector' ),
+			'description' => __( 'The project ID from your Cache-Warmer project page on cache-warmer.com.', 'codelab42-cache-warming-connect' ),
 		) );
-		add_settings_field( 'secret', __( 'Secret', 'cache-warmer-com-connector' ), array( __CLASS__, 'render_secret' ), self::PAGE, 'connection', array(
+		add_settings_field( 'secret', __( 'Secret', 'codelab42-cache-warming-connect' ), array( __CLASS__, 'render_secret' ), self::PAGE, 'connection', array(
 			'key'         => 'secret',
-			'description' => __( 'The webhook secret from your Cache-Warmer project page on cache-warmer.com.', 'cache-warmer-com-connector' ),
+			'description' => __( 'The webhook secret from your Cache-Warmer project page on cache-warmer.com.', 'codelab42-cache-warming-connect' ),
 		) );
 
-		add_settings_section( 'triggers', __( 'Triggers', 'cache-warmer-com-connector' ), '__return_false', self::PAGE );
-		add_settings_field( 'trigger_on_cache_purge', __( 'Cache cleared', 'cache-warmer-com-connector' ), array( __CLASS__, 'render_checkbox' ), self::PAGE, 'triggers', array(
+		add_settings_section( 'triggers', __( 'Triggers', 'codelab42-cache-warming-connect' ), '__return_false', self::PAGE );
+		add_settings_field( 'trigger_on_cache_purge', __( 'Cache cleared', 'codelab42-cache-warming-connect' ), array( __CLASS__, 'render_checkbox' ), self::PAGE, 'triggers', array(
 			'key'         => 'trigger_on_cache_purge',
-			'label'       => __( 'Warm when the page cache is cleared', 'cache-warmer-com-connector' ),
-			'description' => __( 'Supports WP Rocket, W3 Total Cache, WP Super Cache, LiteSpeed Cache, WP Fastest Cache, Cache Enabler and Autoptimize.', 'cache-warmer-com-connector' ),
+			'label'       => __( 'Warm when the page cache is cleared', 'codelab42-cache-warming-connect' ),
+			'description' => __( 'Supports WP Rocket, W3 Total Cache, WP Super Cache, LiteSpeed Cache, WP Fastest Cache, Cache Enabler and Autoptimize.', 'codelab42-cache-warming-connect' ),
 		) );
-		add_settings_field( 'trigger_on_content', __( 'Content changed', 'cache-warmer-com-connector' ), array( __CLASS__, 'render_checkbox' ), self::PAGE, 'triggers', array(
+		add_settings_field( 'trigger_on_content', __( 'Content changed', 'codelab42-cache-warming-connect' ), array( __CLASS__, 'render_checkbox' ), self::PAGE, 'triggers', array(
 			'key'         => 'trigger_on_content',
-			'label'       => __( 'Warm when content is published, updated or unpublished', 'cache-warmer-com-connector' ),
-			'description' => __( 'Also covers theme switches, Customizer changes, menu edits and plugin/theme updates.', 'cache-warmer-com-connector' ),
+			'label'       => __( 'Warm when content is published, updated or unpublished', 'codelab42-cache-warming-connect' ),
+			'description' => __( 'Also covers theme switches, Customizer changes, menu edits and plugin/theme updates.', 'codelab42-cache-warming-connect' ),
 		) );
-		add_settings_field( 'cooldown', __( 'Cooldown', 'cache-warmer-com-connector' ), array( __CLASS__, 'render_cooldown' ), self::PAGE, 'triggers', array(
+		add_settings_field( 'cooldown', __( 'Cooldown', 'codelab42-cache-warming-connect' ), array( __CLASS__, 'render_cooldown' ), self::PAGE, 'triggers', array(
 			'key' => 'cooldown',
 		) );
 
-		add_settings_section( 'advanced', __( 'Advanced', 'cache-warmer-com-connector' ), '__return_false', self::PAGE );
-		add_settings_field( 'webhook_url', __( 'Webhook URL', 'cache-warmer-com-connector' ), array( __CLASS__, 'render_text' ), self::PAGE, 'advanced', array(
+		add_settings_section( 'advanced', __( 'Advanced', 'codelab42-cache-warming-connect' ), '__return_false', self::PAGE );
+		add_settings_field( 'webhook_url', __( 'Webhook URL', 'codelab42-cache-warming-connect' ), array( __CLASS__, 'render_text' ), self::PAGE, 'advanced', array(
 			'key'         => 'webhook_url',
 			'type'        => 'url',
 			/* translators: %s: default webhook URL. */
-			'description' => sprintf( __( 'Only change this for testing. Default: %s', 'cache-warmer-com-connector' ), CacheWarmer_Connect::DEFAULT_WEBHOOK_URL ),
+			'description' => sprintf( __( 'Only change this for testing. Default: %s', 'codelab42-cache-warming-connect' ), CacheWarmer_Connect::DEFAULT_WEBHOOK_URL ),
 		) );
 	}
 
@@ -163,7 +163,7 @@ final class CacheWarmer_Connect_Admin {
 	 * Intro text for the connection section.
 	 */
 	public static function render_connection_intro() {
-		echo '<p>' . esc_html__( 'Log in to cache-warmer.com and open your project. The "Webhook integration" section shows your project ID and secret.', 'cache-warmer-com-connector' ) . '</p>';
+		echo '<p>' . esc_html__( 'Log in to cache-warmer.com and open your project. The "Webhook integration" section shows your project ID and secret.', 'codelab42-cache-warming-connect' ) . '</p>';
 	}
 
 	/**
@@ -185,7 +185,7 @@ final class CacheWarmer_Connect_Admin {
 	private static function render_description( $args ) {
 		if ( CacheWarmer_Connect::is_constant_defined( $args['key'] ) ) {
 			/* translators: %s: constant name. */
-			printf( '<p class="description">' . esc_html__( 'Set in wp-config.php via %s.', 'cache-warmer-com-connector' ) . '</p>', '<code>' . esc_html( CacheWarmer_Connect::CONSTANTS[ $args['key'] ] ) . '</code>' );
+			printf( '<p class="description">' . esc_html__( 'Set in wp-config.php via %s.', 'codelab42-cache-warming-connect' ) . '</p>', '<code>' . esc_html( CacheWarmer_Connect::CONSTANTS[ $args['key'] ] ) . '</code>' );
 		} elseif ( ! empty( $args['description'] ) ) {
 			echo '<p class="description">' . esc_html( $args['description'] ) . '</p>';
 		}
@@ -219,7 +219,7 @@ final class CacheWarmer_Connect_Admin {
 		printf(
 			'<input type="password" class="regular-text" id="cachewarmer-secret" name="%s" value="" autocomplete="new-password" placeholder="%s" %s />',
 			esc_attr( self::field_name( 'secret' ) ),
-			esc_attr( $has_secret ? __( 'Saved. Leave empty to keep it.', 'cache-warmer-com-connector' ) : '' ),
+			esc_attr( $has_secret ? __( 'Saved. Leave empty to keep it.', 'codelab42-cache-warming-connect' ) : '' ),
 			disabled( CacheWarmer_Connect::is_constant_defined( 'secret' ), true, false )
 		);
 		self::render_description( $args );
@@ -251,9 +251,9 @@ final class CacheWarmer_Connect_Admin {
 			(int) DAY_IN_SECONDS,
 			esc_attr( self::field_name( 'cooldown' ) ),
 			(int) CacheWarmer_Connect::get_setting( 'cooldown' ),
-			esc_html__( 'seconds', 'cache-warmer-com-connector' )
+			esc_html__( 'seconds', 'codelab42-cache-warming-connect' )
 		);
-		echo '<p class="description">' . esc_html__( 'Minimum time between automatic runs. Changes made during the cooldown are warmed in one extra run when it ends. Use 0 to disable.', 'cache-warmer-com-connector' ) . '</p>';
+		echo '<p class="description">' . esc_html__( 'Minimum time between automatic runs. Changes made during the cooldown are warmed in one extra run when it ends. Use 0 to disable.', 'codelab42-cache-warming-connect' ) . '</p>';
 	}
 
 	/**
@@ -267,7 +267,7 @@ final class CacheWarmer_Connect_Admin {
 		<div class="wrap">
 			<h1 style="display: flex; align-items: center; gap: 10px;">
 				<img src="<?php echo esc_url( plugins_url( 'assets/logo.svg', CACHEWARMER_CONNECT_FILE ) ); ?>" alt="" width="36" height="37" />
-				<?php esc_html_e( 'Cache-Warmer.com connector', 'cache-warmer-com-connector' ); ?>
+				<?php esc_html_e( 'Codelab42 Cache Warming Connect', 'codelab42-cache-warming-connect' ); ?>
 			</h1>
 
 			<?php self::render_status(); ?>
@@ -291,30 +291,30 @@ final class CacheWarmer_Connect_Admin {
 		$next = wp_next_scheduled( CacheWarmer_Connect::CRON_HOOK );
 		?>
 		<div class="card" style="max-width: 640px;">
-			<h2><?php esc_html_e( 'Status', 'cache-warmer-com-connector' ); ?></h2>
+			<h2><?php esc_html_e( 'Status', 'codelab42-cache-warming-connect' ); ?></h2>
 			<p>
 				<?php
 				if ( CacheWarmer_Connect::is_active() ) {
-					esc_html_e( 'Automatic warming is active.', 'cache-warmer-com-connector' );
+					esc_html_e( 'Automatic warming is active.', 'codelab42-cache-warming-connect' );
 				} elseif ( CacheWarmer_Connect::is_configured() ) {
-					esc_html_e( 'Automatic warming is disabled. You can still warm manually.', 'cache-warmer-com-connector' );
+					esc_html_e( 'Automatic warming is disabled. You can still warm manually.', 'codelab42-cache-warming-connect' );
 				} else {
-					esc_html_e( 'Not configured yet. Enter your project ID and secret below.', 'cache-warmer-com-connector' );
+					esc_html_e( 'Not configured yet. Enter your project ID and secret below.', 'codelab42-cache-warming-connect' );
 				}
 				?>
 			</p>
 			<?php if ( ! CacheWarmer_Connect::is_configured() ) : ?>
 				<p>
-					<?php esc_html_e( "Don't have a Cache-Warmer account yet?", 'cache-warmer-com-connector' ); ?>
-					<a href="<?php echo esc_url( CacheWarmer_Connect::SIGNUP_URL ); ?>" class="button button-primary" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Create an account on cache-warmer.com', 'cache-warmer-com-connector' ); ?></a>
+					<?php esc_html_e( "Don't have a Cache-Warmer account yet?", 'codelab42-cache-warming-connect' ); ?>
+					<a href="<?php echo esc_url( CacheWarmer_Connect::SIGNUP_URL ); ?>" class="button button-primary" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Create an account on cache-warmer.com', 'codelab42-cache-warming-connect' ); ?></a>
 				</p>
 			<?php endif; ?>
 			<?php if ( $last ) : ?>
 				<p>
-					<strong><?php esc_html_e( 'Last trigger:', 'cache-warmer-com-connector' ); ?></strong>
+					<strong><?php esc_html_e( 'Last trigger:', 'codelab42-cache-warming-connect' ); ?></strong>
 					<?php
 					/* translators: %s: human-readable time difference. */
-					echo esc_html( sprintf( __( '%s ago', 'cache-warmer-com-connector' ), human_time_diff( $last['time'] ) ) );
+					echo esc_html( sprintf( __( '%s ago', 'codelab42-cache-warming-connect' ), human_time_diff( $last['time'] ) ) );
 					echo ' (' . esc_html( $last['reason'] ) . ') &mdash; ';
 					printf( '<span style="color: %s;">%s</span>', $last['success'] ? '#008a20' : '#d63638', esc_html( $last['message'] ) );
 					?>
@@ -324,12 +324,12 @@ final class CacheWarmer_Connect_Admin {
 				<p>
 					<?php
 					/* translators: %s: human-readable time difference. */
-					echo esc_html( sprintf( __( 'A follow-up run is scheduled in %s.', 'cache-warmer-com-connector' ), human_time_diff( $next ) ) );
+					echo esc_html( sprintf( __( 'A follow-up run is scheduled in %s.', 'codelab42-cache-warming-connect' ), human_time_diff( $next ) ) );
 					?>
 				</p>
 			<?php endif; ?>
 			<?php if ( CacheWarmer_Connect::is_configured() ) : ?>
-				<p><a href="<?php echo esc_url( self::warm_now_url() ); ?>" class="button button-secondary"><?php esc_html_e( 'Warm cache now', 'cache-warmer-com-connector' ); ?></a></p>
+				<p><a href="<?php echo esc_url( self::warm_now_url() ); ?>" class="button button-secondary"><?php esc_html_e( 'Warm cache now', 'codelab42-cache-warming-connect' ); ?></a></p>
 			<?php endif; ?>
 		</div>
 		<?php
@@ -340,7 +340,7 @@ final class CacheWarmer_Connect_Admin {
 	 */
 	public static function handle_warm_now() {
 		if ( ! current_user_can( self::capability() ) ) {
-			wp_die( esc_html__( 'You are not allowed to do this.', 'cache-warmer-com-connector' ), 403 );
+			wp_die( esc_html__( 'You are not allowed to do this.', 'codelab42-cache-warming-connect' ), 403 );
 		}
 		check_admin_referer( self::ACTION );
 
@@ -365,7 +365,7 @@ final class CacheWarmer_Connect_Admin {
 		}
 
 		printf(
-			'<div class="notice notice-%s is-dismissible"><p><strong>Cache-Warmer.com connector:</strong> %s</p></div>',
+			'<div class="notice notice-%s is-dismissible"><p><strong>Codelab42 Cache Warming Connect:</strong> %s</p></div>',
 			$last['success'] ? 'success' : 'error',
 			esc_html( $last['message'] )
 		);
@@ -383,8 +383,8 @@ final class CacheWarmer_Connect_Admin {
 
 		$admin_bar->add_node(
 			array(
-				'id'    => 'cache-warmer-com-connector',
-				'title' => __( 'Warm cache', 'cache-warmer-com-connector' ),
+				'id'    => 'codelab42-cache-warming-connect',
+				'title' => __( 'Warm cache', 'codelab42-cache-warming-connect' ),
 				'href'  => self::warm_now_url(),
 			)
 		);

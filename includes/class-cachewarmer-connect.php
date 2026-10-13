@@ -248,7 +248,7 @@ final class CacheWarmer_Connect {
 	 */
 	public static function warm( $reason = 'manual' ) {
 		if ( ! self::is_configured() ) {
-			return self::record( $reason, new WP_Error( 'cachewarmer_not_configured', __( 'Enter your project ID and secret first.', 'cache-warmer-com-connector' ) ) );
+			return self::record( $reason, new WP_Error( 'cachewarmer_not_configured', __( 'Enter your project ID and secret first.', 'codelab42-cache-warming-connect' ) ) );
 		}
 
 		$cooldown = (int) self::get_setting( 'cooldown' );
@@ -285,10 +285,10 @@ final class CacheWarmer_Connect {
 		}
 
 		if ( 403 === $code ) {
-			$message = __( 'The request was rejected (HTTP 403). Check your project ID and secret, and that your cache-warmer.com subscription is active.', 'cache-warmer-com-connector' );
+			$message = __( 'The request was rejected (HTTP 403). Check your project ID and secret, and that your cache-warmer.com subscription is active.', 'codelab42-cache-warming-connect' );
 		} else {
 			/* translators: %d: HTTP status code. */
-			$message = sprintf( __( 'cache-warmer.com could not be reached (HTTP %d). Please try again later.', 'cache-warmer-com-connector' ), $code );
+			$message = sprintf( __( 'cache-warmer.com could not be reached (HTTP %d). Please try again later.', 'codelab42-cache-warming-connect' ), $code );
 		}
 
 		return self::record( $reason, new WP_Error( 'cachewarmer_http_' . $code, $message ) );
@@ -311,13 +311,13 @@ final class CacheWarmer_Connect {
 				'time'    => time(),
 				'reason'  => $reason,
 				'success' => $success,
-				'message' => $success ? __( 'Cache warming triggered.', 'cache-warmer-com-connector' ) : $result->get_error_message(),
+				'message' => $success ? __( 'Cache warming triggered.', 'codelab42-cache-warming-connect' ) : $result->get_error_message(),
 			),
 			false
 		);
 
 		if ( ! $success && defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
-			error_log( 'Cache-Warmer.com connector: an error occurred when trying to warm the cache: ' . $result->get_error_message() ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			error_log( 'Codelab42 Cache Warming Connect: an error occurred when trying to warm the cache: ' . $result->get_error_message() ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 		}
 
 		/**
